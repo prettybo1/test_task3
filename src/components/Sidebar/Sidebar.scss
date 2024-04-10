@@ -1,0 +1,144 @@
+$main-color: #ffffff;
+$main-text-color: #9197B3;
+$hover-color: #5932EA;
+
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 306px;
+  height: 100vh;
+  position: fixed;
+  background-color: $main-color;
+  color: $main-text-color;
+  font-family: Poppins;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    margin: -15px 0px;
+    padding: 36px 0 26px 20px;
+
+    img {
+      &:first-child {
+        margin-right: 8px;
+      }
+
+      &:last-child {
+        margin-left: auto;
+        margin-right: 20px;
+      }
+    }
+
+    p {
+      margin-left: auto;
+      margin-top: 10px;
+      margin-right: 62px;
+      color: #838383;
+    }
+  }
+  &__menu {
+    list-style: none;
+    padding: 0;
+    margin: 64px 30px;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      padding: 18px 30px;
+      font-weight: 500;
+      font-size: 16px;
+      color: $main-text-color;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        background-color: $hover-color;
+        color: $main-color;
+      }
+
+      img {
+        margin-right: 24px;
+      }
+
+      &-content {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        position: relative;
+
+        img {
+          margin-right: 14px;
+          transition: filter 0.2s ease-in-out; // Добавляем transition для плавного изменения цвета иконки
+        }
+
+        span {
+          flex-grow: 1;
+          transition: color 0.2s ease-in-out;
+        }
+      }
+
+      &-arrow {
+        position: absolute;
+        right: 5px;
+        color: $main-text-color;
+        font-size: 16px;
+        transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+        &::after {
+          content: '›';
+          font-size: 20px;
+        }
+      }
+
+      &:hover {
+        .sidebar__menu-item-content img {
+          filter: brightness(0) invert(1); // Применяем инверсию цвета иконки при наведении
+        }
+
+        .sidebar__menu-item-content span,
+        .sidebar__menu-item-arrow {
+          color: $main-color;
+        }
+
+        .sidebar__menu-item-arrow {
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+  &__user {
+    display: flex;
+    align-items: center;
+    padding: 20px 22px;
+    margin: 20px 8px;
+    margin-top: auto;
+  }
+  &__user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 16px;
+  }
+
+  &__user-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__user-name {
+    padding: 4px 0px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+  }
+
+  &__user-role {
+    padding: 4px 0px;
+    font-size: 14px;
+    color: #666;
+  }
+}
+
